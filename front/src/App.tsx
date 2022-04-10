@@ -4,6 +4,7 @@ import { AuthContext, IAuthContext } from './context/AuthContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './components/public/login';
 import { FullPageLoading } from './components/FullPageLoading';
+import Admin from './components/admin'
 
 function App() {
   const { currentUser, checkUser } = useContext(AuthContext) as IAuthContext;
@@ -26,7 +27,7 @@ function App() {
 
   const adminRoutes = (
     <Routes>
-      <Route path="/" element={<><h3>Admi</h3></>} />
+      <Route path="/ayuda" element={<Admin/>} />
     </Routes>
   );
 
