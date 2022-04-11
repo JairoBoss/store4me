@@ -15,7 +15,7 @@ function App() {
   }, []);
   const publicRoutes = (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Admin />} />
     </Routes>
   );
 
