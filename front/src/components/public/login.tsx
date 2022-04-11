@@ -2,7 +2,6 @@ import { SetStateAction, useContext, useState } from 'react';
 import { AuthContext, IAuthContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../services/User.service';
-import './Login.css';
 
 function Login() {
   const { login } = useContext(AuthContext) as IAuthContext;
@@ -31,7 +30,7 @@ function Login() {
     } else {
     }
   };
-
+  require("./Login.css");
   return (
     <div className="materialContainer">
       <div className="box">
