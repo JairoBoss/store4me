@@ -6,16 +6,19 @@ import Login from './components/public/login';
 import { FullPageLoading } from './components/FullPageLoading';
 import Admin from './components/admin'
 
+
+
 function App() {
   const { currentUser, checkUser } = useContext(AuthContext) as IAuthContext;
   const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     checkUser();
   }, []);
   const publicRoutes = (
     <Routes>
-      <Route path="/" element={<Admin />} />
+      <Route path="/" element={<Login />} />
     </Routes>
   );
 
@@ -32,7 +35,7 @@ function App() {
   );
 
   const getRoute = () => {
-    console.log(currentUser)
+    
     if (loading) {
       return (
         <Routes>

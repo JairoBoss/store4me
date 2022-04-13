@@ -18,7 +18,7 @@ function Login() {
       try {
         setLoading(true);
         const promise = UserService.login(data).then((response) => {
-          login(response.user, 'userToken ' + response.access_token);
+          login(response.user, response.token);
           navigate('/aaaaaa');
         });
                 

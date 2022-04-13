@@ -16,7 +16,7 @@ const AuthProvider = ({ children }: { children: ReactNode }): ReactElement => {
 
   const login = async (user: User, token: string) => {
     localStorage.setItem("currentUser", JSON.stringify(user));
-    localStorage.setItem("token", token);
+    localStorage.setItem("token", token);    
     setCurrentUser(new User(user));
   };
 

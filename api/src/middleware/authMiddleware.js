@@ -7,7 +7,8 @@ exports.verifyUserToken = (req, res, next) => {
     return res.status(401).send("Acceso denegado");
 
   try {
-    token = token.split(" ")[1];
+
+    // token = token.split(" ")[1];
 
     if (token === "null" || !token)
       return res.status(401).send("¿Que haces aqui?");

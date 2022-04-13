@@ -13,7 +13,7 @@ httpClient.interceptors.request.use(
     config.headers = {
       'Content-Type': 'application/json'
     };
-    if (token) config.headers.Authorization = token;
+    if (token) config.headers.authorization = token;
     return config;
   },
   function (error) {
@@ -43,7 +43,7 @@ httpClient.interceptors.response.use(
 );
 
 const httpFormDataClient = axios.create({
-  baseURL: process.env.REACT_APP_API,
+  baseURL: "http://localhost:8080/api/",
   headers: {
     'Content-Type': 'multipart/form-data'
   }
@@ -56,7 +56,7 @@ httpFormDataClient.interceptors.request.use(
       'Content-Type': 'multipart/form-data'
     };
 
-    if (token) config.headers.Authentication = token;
+    if (token) config.headers.authorization = token;
     return config;
   },
   function (error) {

@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { BiArrowToLeft } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./index.css";
-import Item from './Categorias/item';
+
+import TablaCategorias from "./Categorias/tabla";
+import ReactDOM from "react-dom";
+import EditarCategoria from "./Categorias/editar";
 
 const Index = () => {
   const { logout } = useContext(AuthContext) as IAuthContext;
@@ -18,6 +21,16 @@ const Index = () => {
   if (user) {
     jsonUser = JSON.parse(user);
   }
+
+  const obtenerProgramas = () => {
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<></>, divDash);
+  };
+
+  
 
   const salir = () => {
     logout();
@@ -61,11 +74,9 @@ const Index = () => {
                   <img
                     src="../assets/img/logo-ct.png"
                     className="navbar-brand-img h-100"
-                    alt="main_logo"
+                    alt=""
                   />
-                  <span className="ms-1 font-weight-bold">
-                    Soft UI Dashboard
-                  </span>
+                  <span className="ms-1 font-weight-bold">Store4me</span>
                 </a>
               </div>
               <hr className="horizontal dark mt-0" />
@@ -117,7 +128,10 @@ const Index = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link  " href="../pages/tables.html">
+                    <a
+                      className="nav-link  "
+                      onClick={() => obtenerProgramas()}
+                    >
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
                           width="12px"
@@ -445,12 +459,11 @@ const Index = () => {
                   </li>
 
                   <li className="nav-item">
-                  
-                    <a className="nav-link  " onClick={() => setNav()} >
-                      <div className="icon icon-shape   text-center me-2 d-flex align-items-center justify-content-center">
-                        
-                      </div>
-                      <span className="nav-link-text ms-1"><BiArrowToLeft /></span>
+                    <a className="nav-link  " onClick={() => setNav()}>
+                      <div className="icon icon-shape   text-center me-2 d-flex align-items-center justify-content-center"></div>
+                      <span className="nav-link-text ms-1">
+                        <BiArrowToLeft />
+                      </span>
                     </a>
                   </li>
                 </ul>
@@ -478,7 +491,9 @@ const Index = () => {
                     aria-current="page"
                   >
                     Dashboard&nbsp;
-                    <a onClick={() => setNav()}><GiHamburgerMenu/></a>
+                    <a onClick={() => setNav()}>
+                      <GiHamburgerMenu />
+                    </a>
                   </li>
                 </ol>
                 <h6 className="font-weight-bolder mb-0">Dashboard</h6>
@@ -664,12 +679,12 @@ const Index = () => {
               </div>
             </div>
           </nav>
-          
+
           {/* End Navbar */}
           <div className="container-fluid py-4">
-
-          <Item/>
-
+            <div id="contenidoDash">
+              <EditarCategoria id={"623fc25928dae4ab70740af6"} />
+            </div>
 
             <footer className="footer pt-3  ">
               <div className="container-fluid">
