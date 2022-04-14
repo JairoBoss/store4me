@@ -17,6 +17,9 @@ const ProductosSchema = mongoose.Schema({
         required: true,
         ref: 'Categorias'
     }],
+    Imagenes: [{
+        type: Number,        
+    }],
 });
 
 module.exports = mongoose.model("Producto", ProductosSchema);

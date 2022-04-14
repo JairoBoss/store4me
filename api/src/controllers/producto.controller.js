@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     Stock: req.body.Stock,
     Descripcion: req.body.Descripcion,
     Categorias: req.body.Categorias,
+    Imagenes: req.body.Imagenes,
   });
 
   productoNuevo

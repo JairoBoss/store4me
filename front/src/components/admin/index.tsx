@@ -7,8 +7,11 @@ import "./index.css";
 import TablaCategorias from "./Categorias/tabla";
 import ReactDOM from "react-dom";
 import EditarCategoria from "./Categorias/editar";
+import TablaProductos from "./Productos/tablaProductos";
 
 const Index = () => {
+  const [active, setActive] = useState(null);
+
   const { logout } = useContext(AuthContext) as IAuthContext;
   const [view, setView] = useState(true);
   const user = localStorage.getItem("currentUser");
@@ -21,23 +24,31 @@ const Index = () => {
     jsonUser = JSON.parse(user);
   }
 
-  const obtenerProgramas = () => {
+  const obtenerCategorias = () => {
+    setActive("categorias");
     let divDash = document.getElementById("contenidoDash");
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
-    ReactDOM.render(<TablaCategorias/>, divDash);
+    ReactDOM.render(<TablaCategorias />, divDash);
   };
 
-  const quitar = () =>{
+  const obtenerProductos = () =>{
+    setActive("Producto");
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<TablaProductos />, divDash);
+  }
+
+  const quitar = () => {
     let divDash = document.getElementById("contenidoDash");
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
     ReactDOM.render(<></>, divDash);
-  }
-
-  
+  };
 
   const salir = () => {
     logout();
@@ -90,10 +101,7 @@ const Index = () => {
               <div>
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a
-                      className="nav-link  active"
-                      onClick={() => quitar()}
-                    >
+                    <a className="nav-link  active" onClick={() => quitar()}>
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
                           width="12px"
@@ -136,8 +144,11 @@ const Index = () => {
                   </li>
                   <li className="nav-item">
                     <a
-                      className="nav-link  "
-                      onClick={() => obtenerProgramas()}
+                      // className="nav-link  "
+                      onClick={() => obtenerCategorias()}
+                      className={`nav-link ${
+                        active == "categorias" && "active"
+                      }`}
                     >
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
@@ -179,11 +190,15 @@ const Index = () => {
                           </g>
                         </svg>
                       </div>
-                      <span className="nav-link-text ms-1">Tables</span>
+                      <span className="nav-link-text ms-1">Categorias</span>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link  " href="../pages/billing.html">
+                    <a
+                      // className="nav-link  "
+                      className={`nav-link ${active == "AAAAA" && "active"}`}
+                      onClick={() => setActive("AAAAA")}
+                    >
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
                           width="12px"
@@ -221,13 +236,14 @@ const Index = () => {
                           </g>
                         </svg>
                       </div>
-                      <span className="nav-link-text ms-1">Billing</span>
+                      <span className="nav-link-text ms-1">AAAAA</span>
                     </a>
                   </li>
                   <li className="nav-item">
                     <a
-                      className="nav-link  "
-                      href="../pages/virtual-reality.html"
+                      // aaaaaaaaaaaaaaaa
+                      className={`nav-link ${active == "Producto" && "active"}`}
+                      onClick={() => obtenerProductos()}
                     >
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
@@ -271,7 +287,7 @@ const Index = () => {
                         </svg>
                       </div>
                       <span className="nav-link-text ms-1">
-                        Virtual Reality
+                        Productos
                       </span>
                     </a>
                   </li>
@@ -373,9 +389,7 @@ const Index = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link  " 
-                    onClick={() => logout()}
-                    >
+                    <a className="nav-link  " onClick={() => logout()}>
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
                           width="12px"
@@ -691,9 +705,7 @@ const Index = () => {
 
           {/* End Navbar */}
           <div className="container-fluid py-4">
-            <div id="contenidoDash">
-              <EditarCategoria id={"623fc25928dae4ab70740af6"} />
-            </div>
+            <div id="contenidoDash"></div>
 
             <footer className="footer pt-3  ">
               <div className="container-fluid">
