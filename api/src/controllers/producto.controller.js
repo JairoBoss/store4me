@@ -109,3 +109,18 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.findByCategoria = (req, res) => {
+  //  Producto.updateMany
+  Producto.find({ Categorias: req.params.categoria })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message ||
+          `Ocurrio un erro al tratar de recuperar los productos con categoria: ${req.params.categoria}.`,
+      });
+    });
+};

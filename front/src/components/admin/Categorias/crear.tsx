@@ -6,28 +6,15 @@ import Swal from "sweetalert2";
 import "./estilos.css";
 import ReactDOM from "react-dom";
 import TablaCategorias from "./tabla";
-const EditarCategoria = ({ id }) => {
-  const [datos, setDatos] = useState<Categoria>();
-  const [loading, setLoading] = useState(false);
+const CrearCategoria = () => {
+  const [datos, setDatos] = useState<Categoria>({
+      Nombre: "",
+      Descripcion: "",
 
-  useEffect(() => {
-    loadCategorias();
-  }, []);
+  });
 
-  const loadCategorias = async () => {
-    setLoading(true);
-    try {
-      const result = await CategoriaService.getID(id);
-      setDatos(result);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const ActualizarCategoria = () => {    
-    CategoriaService.update(datos)
+  const guardarCategoria = () => {    
+    CategoriaService.create(datos)
       .then((response) => {
         
       })
@@ -48,7 +35,7 @@ const EditarCategoria = ({ id }) => {
 
     Toast.fire({
       icon: "success",
-      title: "Categoria editada con exito!",
+      title: "Categoria creada con exito!",
     });
 
     regresar();
@@ -69,7 +56,7 @@ const EditarCategoria = ({ id }) => {
           <div className="card mb-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="font-weight-bolder">Editar categoria</h5>
+                <h5 className="font-weight-bolder">Crear categoria</h5>
                 {JSON.stringify(datos)}
                 {!datos ? (
                   <CircularProgress />
@@ -125,7 +112,7 @@ const EditarCategoria = ({ id }) => {
                       <div className="col-12 col-sm-3">
                         <button
                           className="buttonSave"
-                          onClick={() => ActualizarCategoria()}
+                          onClick={() => guardarCategoria()}
                         >
                           Guardar
                         </button>
@@ -142,4 +129,4 @@ const EditarCategoria = ({ id }) => {
   );
 };
 
-export default EditarCategoria;
+export default CrearCategoria;

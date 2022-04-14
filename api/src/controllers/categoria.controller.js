@@ -1,4 +1,5 @@
 const Categoria = require("../models/categoria.model.js");
+const Producto = require("../models/producto.model.js");
 
 exports.create = (req, res) => {
   if (!req.body.Nombre) {
@@ -10,7 +11,7 @@ exports.create = (req, res) => {
 
   const categoriaNueva = new Categoria({
     Nombre: req.body.Nombre,
-    Descripcion: req.body.Descripcion    
+    Descripcion: req.body.Descripcion,
   });
   categoriaNueva
     .save()
@@ -92,6 +93,21 @@ exports.delete = (req, res) => {
           message: `Categoria con id: ${req.params.id}, no encontrada`,
         });
       }
+      Producto.updateMany(
+        { Categorias: req.params.id },
+        {
+          $pull: {
+            Categorias: req.params.id,
+          },
+        }
+      ).then((data) => {
+        if (!data) {
+          return res.status(404).send({
+            message: `Producto con id: ${req.params.id}, no encontrada`,
+          });
+        }
+        console.log(data)
+      });
       res.send({ message: "Categoria eliminada con exito!" });
     })
     .catch((err) => {

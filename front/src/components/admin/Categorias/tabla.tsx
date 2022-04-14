@@ -28,8 +28,11 @@ import {
 } from "@mui/material";
 import { ChangeEvent, useEffect, useState, MouseEvent } from "react";
 import CategoriaService from "../../../services/Categoria.service";
-import { MDBDataTable } from "mdbreact";
+import EditarCategoria from "./editar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ReactDOM from "react-dom";
+import Swal from "sweetalert2";
+import CrearCategoria from "./crear";
 
 const TablaCategorias = () => {
   const [loading, setLoading] = useState(false);
@@ -68,12 +71,61 @@ const TablaCategorias = () => {
     }
   };
 
+  const editarCategoria = (id) => {
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<EditarCategoria id={id} />, divDash);
+  };
+  
+  
+  const eliminarCategoria = (id) => {
+    Swal.fire({
+      icon: "warning",
+      title: "¿Estas seguro de eliminar la categoria?",
+      
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: "Eliminar",
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        CategoriaService.remove(id)
+          .then((response) => {})
+          .catch((e) => {
+            console.log(e);
+          });
+
+        regresar();
+      }
+    });
+  };
+
+  const crearCategoria = () =>{
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<CrearCategoria />, divDash);
+  }
+
+  const regresar = () => {
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<TablaCategorias />, divDash);
+  };
   return (
     <div className="row">
       <div className="col-12">
         <div className="card mb-4">
           <div className="card-header pb-0">
-            <h6>Projects table</h6>
+            <h6>Categorias</h6>
+            <button onClick={() => crearCategoria()}>
+              Crear categorias
+            </button>
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
@@ -85,9 +137,8 @@ const TablaCategorias = () => {
                     <TableRow>
                       <TableCell>Nombre</TableCell>
                       <TableCell>Descripcion</TableCell>
-                      <TableCell>Editar</TableCell>
-                      <TableCell>Eliminar</TableCell>
-                      <TableCell>Ver</TableCell>
+                      <TableCell></TableCell>
+                      <TableCell></TableCell>                      
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -105,14 +156,17 @@ const TablaCategorias = () => {
                           {categoria.Descripcion}
                         </TableCell>
                         <TableCell component="th" scope="row">
-                          {categoria.Nombre}
+                          <button
+                            onClick={() => editarCategoria(categoria._id)}
+                          >
+                            Editar
+                          </button>
                         </TableCell>
                         <TableCell component="th" scope="row">
-                          {categoria.Nombre}
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                          {categoria.Nombre}
-                        </TableCell>
+                          <button onClick={() => eliminarCategoria(categoria._id)}>
+                            Eliminar
+                          </button>
+                        </TableCell>                        
                       </TableRow>
                     ))}
                   </TableBody>

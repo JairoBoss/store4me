@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { BiArrowToLeft } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./index.css";
-
 import TablaCategorias from "./Categorias/tabla";
 import ReactDOM from "react-dom";
 import EditarCategoria from "./Categorias/editar";
@@ -27,8 +26,16 @@ const Index = () => {
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
-    ReactDOM.render(<></>, divDash);
+    ReactDOM.render(<TablaCategorias/>, divDash);
   };
+
+  const quitar = () =>{
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<></>, divDash);
+  }
 
   
 
@@ -85,7 +92,7 @@ const Index = () => {
                   <li className="nav-item">
                     <a
                       className="nav-link  active"
-                      href="../pages/dashboard.html"
+                      onClick={() => quitar()}
                     >
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
@@ -366,7 +373,9 @@ const Index = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link  " href="../pages/sign-in.html">
+                    <a className="nav-link  " 
+                    onClick={() => logout()}
+                    >
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
                           width="12px"

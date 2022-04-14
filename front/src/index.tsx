@@ -4,8 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthProvider from "./context/AuthContext";
-//import ToastContainer from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+// import ToastContainer from "react-toastify";
 
 ReactDOM.render(
   <AuthProvider>

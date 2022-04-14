@@ -7,7 +7,7 @@ module.exports = (app) => {
 
   router.get("/", CategoriaController.findAll);
 
-  router.get("/:id", CategoriaController.findOne);
+  router.get("/:id", CategoriaController.findOne);  
 
   router.put("/:id", verifyUserToken, CategoriaController.update);
 
