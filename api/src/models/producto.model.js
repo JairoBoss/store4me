@@ -18,7 +18,7 @@ const ProductosSchema = mongoose.Schema({
         ref: 'Categorias'
     }],
     Imagenes: [{
-        type: Number,        
+        type: String,        
     }],
 });
 

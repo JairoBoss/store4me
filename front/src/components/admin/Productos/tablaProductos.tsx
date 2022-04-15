@@ -15,6 +15,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
 import Swal from "sweetalert2";
 import ProductoService from "../../../services/Producto.service";
+import CrearProducto from "./crearProducto";
+import SimpleDropZone from "../Imagen/imagen"
+import EditarProducto from "./editarProducto";
 
 const TablaProductos = () => {
   const [loading, setLoading] = useState(false);
@@ -51,13 +54,13 @@ const TablaProductos = () => {
     }
   };
 
-  const editarCategoria = (id) => {
+  const editarProducto = (id) => {
     let divDash = document.getElementById("contenidoDash");
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
     // ReactDOM.render(<EditarCategoria id={id} />, divDash);
-    ReactDOM.render(<></>, divDash);
+    ReactDOM.render(<EditarProducto id={id}/>, divDash);
   };
 
   const eliminarCategoria = (id) => {
@@ -82,12 +85,12 @@ const TablaProductos = () => {
     });
   };
 
-  const crearCategoria = () => {
+  const crearProducto = () => {
     let divDash = document.getElementById("contenidoDash");
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
-    ReactDOM.render(<></>, divDash);
+    ReactDOM.render(<CrearProducto/>, divDash);
   };
 
   const regresar = () => {
@@ -98,18 +101,19 @@ const TablaProductos = () => {
     // ReactDOM.render(<TablaCategorias />, divDash);
     ReactDOM.render(<></>, divDash);
   };
+  
   return (
     <div className="row">
       <div className="col-12">
         <div className="card mb-4">
           <div className="card-header pb-0">
-            <h6>Categorias</h6>
-            <button onClick={() => crearCategoria()}>Crear categorias</button>
+            <h6>Productos</h6>
+            <button onClick={() => crearProducto()}>Crear producto</button>
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
-              {loading && <CircularProgress />}
-
+            <SimpleDropZone/>
+              {loading && <CircularProgress />}              
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableHead>
@@ -144,7 +148,7 @@ const TablaProductos = () => {
                         </TableCell>
                         <TableCell component="th" scope="row">
                           <button
-                            onClick={() => editarCategoria(producto._id)}
+                            onClick={() => editarProducto(producto._id)}
                           >
                             Editar
                           </button>
