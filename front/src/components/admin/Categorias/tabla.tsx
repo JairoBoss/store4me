@@ -33,6 +33,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
 import Swal from "sweetalert2";
 import CrearCategoria from "./crear";
+import CrearProducto from "../Productos/crearProducto";
 
 const TablaCategorias = () => {
   const [loading, setLoading] = useState(false);
@@ -107,7 +108,9 @@ const TablaCategorias = () => {
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
-    ReactDOM.render(<CrearCategoria />, divDash);
+    // ReactDOM.render(<CrearCategoria />, divDash);
+    ReactDOM.render(<CrearProducto />, divDash);
+    
   }
 
   const regresar = () => {

@@ -20,12 +20,12 @@ const EditarProducto = ({ id }) => {
   useEffect(() => {
     loadProducto();
     loadCategorias();
-    let arrayCat = []
-    categorias.map((categoria, index)=>{
+    let arrayCat = [];
+    categorias.map((categoria, index) => {
       arrayCat.push(categoria.Nombre);
-    })
+    });
     setCategoriasNombre(arrayCat);
-    console.log(categoriasNombre)
+    console.log(categoriasNombre);
   }, []);
 
   const loadProducto = async () => {
@@ -96,19 +96,35 @@ const EditarProducto = ({ id }) => {
                 <h5 className="font-weight-bolder">Editar producti</h5>
                 {JSON.stringify(datos)}
                 <SimpleDropZone />
-                
+
                 {!categoriasNombre ? (
                   <CircularProgress />
                 ) : (
-                
-                  <ComboBox
-                    style={{
-                      width: "300px",
-                    }}
-                    data={categoriasNombre}
-                    value={value}
-                    onChange={(e) => setValue(e.value)}
-                  />
+                  <div>
+                    <label className="select" htmlFor="slct">
+                      <select id="slct" required="required">
+                        <option value disabled="disabled" selected="selected">
+                          Select option
+                        </option>
+                        <option value="#">One</option>
+                        <option value="#">Two</option>
+                        <option value="#">Three</option>
+                        <option value="#">Four</option>
+                        <option value="#">Five</option>
+                        <option value="#">Six</option>
+                        <option value="#">Seven</option>
+                      </select>
+                      <svg>
+                        <use xlinkHref="#select-arrow-down" />
+                      </svg>
+                    </label>
+                    {/* SVG Sprites*/}
+                    <svg className="sprites">
+                      <symbol id="select-arrow-down" viewBox="0 0 10 6">
+                        <polyline points="1 1 5 5 9 1" />
+                      </symbol>
+                    </svg>
+                  </div>
                 )}
                 {!datos ? (
                   <CircularProgress />

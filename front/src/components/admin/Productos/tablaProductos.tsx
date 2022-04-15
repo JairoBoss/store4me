@@ -112,7 +112,6 @@ const TablaProductos = () => {
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
-            <SimpleDropZone/>
               {loading && <CircularProgress />}              
               <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
