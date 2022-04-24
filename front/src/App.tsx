@@ -17,6 +17,9 @@ function App() {
   const publicRoutes = (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/gracias-por-comprar" element={<>
+        <h1>Gracias por su compra</h1>
+      </>} />
       <Route path="/tienda/productos" element={<ListaProductos />} />
     </Routes>
   );
