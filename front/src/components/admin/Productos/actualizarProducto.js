@@ -9,21 +9,18 @@ import http from "../Imagen/http-common";
 import TablaProductos from "./tablaProductos";
 import ProductoService from "../../../services/Producto.service";
 
-const CrearProducto = () => {
+const CrearProducto = ({ id }) => {
   const [imagenes, setImagenes] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [state, setState] = useState({
-    Nombre: null,
-    Descripcion: null,
-    Precio: null,
-    Stock: null,
-    Categorias: [],
-    Imagenes: [],
-  });
+  const [state, setState] = useState();
+  let imagenesIniciales = [];
 
   useEffect(() => {
     loadCategorias();
+    loadProducto();
+    imagenesIniciales = state.Imagenes;
+    console.log(imagenesIniciales)
   }, []);
 
   const loadCategorias = async () => {
@@ -38,6 +35,17 @@ const CrearProducto = () => {
     }
   };
 
+  const loadProducto = async () => {
+    setLoading(true);
+    try {
+      const results = await ProductoService.getID(id);
+      setState(results);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
   const getUploadParams = ({ file, meta }) => {
     let body = new FormData();
     body.append("foto", file);

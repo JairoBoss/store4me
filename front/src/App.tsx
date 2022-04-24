@@ -1,17 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
-import './App.css';
-import { AuthContext, IAuthContext } from './context/AuthContext';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './components/public/login';
-import { FullPageLoading } from './components/FullPageLoading';
-import Admin from './components/admin'
-
-
+import { useContext, useEffect, useState } from "react";
+import "./App.css";
+import { AuthContext, IAuthContext } from "./context/AuthContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./components/public/login";
+import { FullPageLoading } from "./components/FullPageLoading";
+import Admin from "./components/admin";
+import ListaProductos from "./components/public/Productos/listaProductos";
 
 function App() {
   const { currentUser, checkUser } = useContext(AuthContext) as IAuthContext;
   const [loading, setLoading] = useState(false);
-  
 
   useEffect(() => {
     checkUser();
@@ -19,23 +17,30 @@ function App() {
   const publicRoutes = (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/tienda/productos" element={<ListaProductos />} />
     </Routes>
   );
 
   const userRoutes = (
     <Routes>
-      <Route path="/" element={<><h1>user</h1></>} />
+      <Route
+        path="/"
+        element={
+          <>
+            <h1>user</h1>
+          </>
+        }
+      />
     </Routes>
   );
 
   const adminRoutes = (
     <Routes>
-      <Route path="/ayuda" element={<Admin/>} />
+      <Route path="/ayuda" element={<Admin />} />
     </Routes>
   );
 
   const getRoute = () => {
-    
     if (loading) {
       return (
         <Routes>
@@ -54,9 +59,8 @@ function App() {
   };
   return (
     <>
-    <BrowserRouter>{getRoute()}</BrowserRouter>
+      <BrowserRouter>{getRoute()}</BrowserRouter>
     </>
-
   );
 }
 

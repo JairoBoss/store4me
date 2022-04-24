@@ -10,7 +10,7 @@ export interface IProducto {
 
 export class Producto implements IProducto {
   [x: string]: any;
-  id?: number;
+  _id: number;
   Nombre: string;
   Precio: string;
   Stock: string;
@@ -19,7 +19,7 @@ export class Producto implements IProducto {
   Imagenes: Array<string>;
 
   constructor(data: IProducto) {
-    this.id = data._id || 0;
+    this._id = data._id || 0;
     this.Nombre = data.Nombre || "";
     this.Precio = data.Precio || "";
     this.Stock = data.Stock || "";
