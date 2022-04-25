@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { Producto } from "../../../models/Producto";
 import http from "../../admin/Imagen/http-common";
 import ProductoService from "../../../services/Producto.service";
+import PaypalService from "../../../services/Paypal.service";
 
 const ItemProducto = ({ id }) => {
+  const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
     Nombre: "",
     Precio: "",
     Imagenes: [],
   });
-  const [loading, setLoading] = useState(false);
-  const [imagenLink, setImagenLink] = useState(null);
 
   useEffect(() => {
     loadProducto();
@@ -21,10 +21,10 @@ const ItemProducto = ({ id }) => {
     setLoading(true);
     try {
       const results = await ProductoService.getID(id);
-      // console.log(results);
+      
       setState(results);
       http.get("/s3url2/" + results.Imagenes[0]).then((data) => {
-        console.log(data.data);
+        
         document.getElementById(`imgProducto${id}`).src = data.data;
         // setImagenLink(data.data);
       });
@@ -35,22 +35,15 @@ const ItemProducto = ({ id }) => {
     }
   };
 
-  const loadImagen = () => {
-    setLoading(true);
-    try {
-      if (state.Imagenes.length >= 1) {
-        http.get("/s3url2/" + state.Imagenes[0]).then((data) => {
-          setImagenLink(data.data);
-          console.log(data.data);
-        });
-      } else {
-        setLoading(true);
-      }
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
+  const pagar = () => {
+    const pago = {
+      Nombres: "Jairo",
+      NombreProducto: state.Nombre,
+      cantidad: state.Precio,
+    };
+    PaypalService.create(pago).then((response) => {
+      window.location.href = response.links[1].href;
+    });
   };
 
   return (
@@ -70,7 +63,7 @@ const ItemProducto = ({ id }) => {
           <i className="fa fa-star-o" />
         </div>
         <p>${state.Precio}</p>
-        <button>Comprar</button>
+        <button onClick={() => pagar()}>Comprar</button>
       </div>
     </>
   );

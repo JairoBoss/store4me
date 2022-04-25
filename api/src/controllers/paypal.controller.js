@@ -21,8 +21,8 @@ exports.crearOrden = async (req, res) => {
       brand_name: `Store4Me ${NombreProducto}`,
       landing_page: "LOGIN",
       user_action: "PAY_NOW",
-      return_url: "http://localhost:8080/pagos/validando-orden",
-      cancel_url: "http://localhost:8080/pagos/cancelando-orden",
+      return_url: "http://localhost:8080/api/pagos/validando-orden",
+      cancel_url: "http://localhost:8080/api/pagos/cancelando-orden",
     },
   };
   const params = new URLSearchParams();
@@ -59,12 +59,10 @@ exports.crearOrden = async (req, res) => {
     IdPaypal: response.data.id,
     Pagado: false,
   });
-  console.log(data);
+
   data
     .save()
-    .then((data) => {
-      console.log(data);
-    })
+    .then((data) => {})
     .catch((err) => {
       res.status(500).send({
         message:
@@ -72,12 +70,13 @@ exports.crearOrden = async (req, res) => {
           `Ocurrio un error al tratar de crear el  Producto ${productoNuevo.Nombre}`,
       });
     });
+
   res.json(response.data);
 };
 
 exports.validarOrden = async (req, res) => {
   const { token } = req.query;
-  console.log(`\n\n\n\n\n\n\n\n\n${token}`);
+
   try {
     const params = new URLSearchParams();
     params.append("grant_type", "client_credentials");
@@ -108,9 +107,10 @@ exports.validarOrden = async (req, res) => {
     let datos = {
       Pagado: true,
     };
-    const actualizaPago = await Pago.findOneAndUpdate({ IdPaypal: token }, datos);
-
-    console.log(actualizaPago);
+    const actualizaPago = await Pago.findOneAndUpdate(
+      { IdPaypal: token },
+      datos
+    );
 
     return res.redirect("http://localhost:3000/gracias-por-comprar");
   } catch (error) {

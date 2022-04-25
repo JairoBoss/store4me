@@ -8,5 +8,5 @@ module.exports = (app) => {
 
   router.get("/cancelando-orden", paypal.cancelarOrden);
 
-  app.use("/pagos", router);
+  app.use("/api/pagos", router);
 };
