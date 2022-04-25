@@ -133,6 +133,7 @@ require("./src/routes/proveedor.routes.js")(app);
 require("./src/routes/cliente.routes.js")(app);
 require("./src/routes/venta.routes.js")(app);
 require("./src/routes/paypal.routes.js")(app);
+require("./src/routes/pago.routes.js")(app);
 
 let PORT = process.env.PORT;
 

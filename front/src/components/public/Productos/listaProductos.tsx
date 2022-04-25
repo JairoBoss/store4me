@@ -2,10 +2,11 @@ import { CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Producto } from "../../../models/Producto";
 import ProductoService from "../../../services/Producto.service";
-import "./index.css";
+// import "./index.css";
 import ItemProducto from "./itemProducto";
 
 const ListaProductos = () => {
+  require('./index.css');
   const [state, setState] = useState<Producto[]>([]);
   const [loading, setLoading] = useState(false);
   let x = null;

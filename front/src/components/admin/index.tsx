@@ -3,13 +3,15 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiArrowToLeft } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import "./index.css";
+// import "./index.css";
 import TablaCategorias from "./Categorias/tabla";
 import ReactDOM from "react-dom";
 import EditarCategoria from "./Categorias/editar";
 import TablaProductos from "./Productos/tablaProductos";
+import TablaPagos from "./Pagos/tablaPagos";
 
 const Index = () => {
+  require('./index.css')
   const [active, setActive] = useState(null);
 
   const { logout } = useContext(AuthContext) as IAuthContext;
@@ -40,6 +42,15 @@ const Index = () => {
       ReactDOM.unmountComponentAtNode(divDash);
     }
     ReactDOM.render(<TablaProductos />, divDash);
+  }
+
+  const obtenerPagos = () =>{
+    setActive("Pagos");
+    let divDash = document.getElementById("contenidoDash");
+    if (divDash.children.length > 0) {
+      ReactDOM.unmountComponentAtNode(divDash);
+    }
+    ReactDOM.render(<TablaPagos />, divDash);
   }
 
   const quitar = () => {
@@ -192,56 +203,9 @@ const Index = () => {
                       </div>
                       <span className="nav-link-text ms-1">Categorias</span>
                     </a>
-                  </li>
+                  </li>                  
                   <li className="nav-item">
                     <a
-                      // className="nav-link  "
-                      className={`nav-link ${active == "AAAAA" && "active"}`}
-                      onClick={() => setActive("AAAAA")}
-                    >
-                      <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg
-                          width="12px"
-                          height="12px"
-                          viewBox="0 0 43 36"
-                          version="1.1"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlnsXlink="http://www.w3.org/1999/xlink"
-                        >
-                          <title>credit-card</title>
-                          <g
-                            stroke="none"
-                            strokeWidth={1}
-                            fill="none"
-                            fillRule="evenodd"
-                          >
-                            <g
-                              transform="translate(-2169.000000, -745.000000)"
-                              fill="#FFFFFF"
-                              fillRule="nonzero"
-                            >
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path
-                                    className="color-background opacity-6"
-                                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                  />
-                                  <path
-                                    className="color-background"
-                                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                                  />
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <span className="nav-link-text ms-1">AAAAA</span>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      // aaaaaaaaaaaaaaaa
                       className={`nav-link ${active == "Producto" && "active"}`}
                       onClick={() => obtenerProductos()}
                     >
@@ -289,6 +253,52 @@ const Index = () => {
                       <span className="nav-link-text ms-1">
                         Productos
                       </span>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      // className="nav-link  "
+                      className={`nav-link ${active == "Pagos" && "active"}`}
+                      onClick={() => obtenerPagos()}
+                    >
+                      <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg
+                          width="12px"
+                          height="12px"
+                          viewBox="0 0 43 36"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                        >
+                          <title>credit-card</title>
+                          <g
+                            stroke="none"
+                            strokeWidth={1}
+                            fill="none"
+                            fillRule="evenodd"
+                          >
+                            <g
+                              transform="translate(-2169.000000, -745.000000)"
+                              fill="#FFFFFF"
+                              fillRule="nonzero"
+                            >
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(453.000000, 454.000000)">
+                                  <path
+                                    className="color-background opacity-6"
+                                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                  />
+                                  <path
+                                    className="color-background"
+                                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
+                                  />
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <span className="nav-link-text ms-1">Pagos</span>
                     </a>
                   </li>
                   <li className="nav-item">
