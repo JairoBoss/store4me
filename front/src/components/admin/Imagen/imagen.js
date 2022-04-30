@@ -1,6 +1,6 @@
 import { Component, useState } from "react";
 import http from "./http-common";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2/dist/sweetalert2.js"
 
 const Imagen = () => {
   const [state, setState] = useState({

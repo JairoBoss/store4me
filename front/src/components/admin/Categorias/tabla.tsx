@@ -31,7 +31,7 @@ import CategoriaService from "../../../services/Categoria.service";
 import EditarCategoria from "./editar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2/dist/sweetalert2.js"
 import CrearCategoria from "./crear";
 import CrearProducto from "../Productos/crearProducto";
 

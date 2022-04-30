@@ -13,7 +13,7 @@ import { ChangeEvent, useEffect, useState, MouseEvent } from "react";
 import CategoriaService from "../../../services/Categoria.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2/dist/sweetalert2.js"
 import ProductoService from "../../../services/Producto.service";
 import CrearProducto from "./crearProducto";
 import SimpleDropZone from "../Imagen/imagen"

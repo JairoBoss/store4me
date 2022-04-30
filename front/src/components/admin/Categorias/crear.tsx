@@ -2,7 +2,8 @@ import { CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Categoria } from "../../../models/Categoria";
 import CategoriaService from "../../../services/Categoria.service";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from "sweetalert2/dist/sweetalert2.js"
 import ReactDOM from "react-dom";
 import TablaCategorias from "./tabla";
 const CrearCategoria = () => {

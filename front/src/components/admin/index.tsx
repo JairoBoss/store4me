@@ -11,7 +11,7 @@ import TablaProductos from "./Productos/tablaProductos";
 import TablaPagos from "./Pagos/tablaPagos";
 
 const Index = () => {
-  require('./index.css')
+  require('https://drive.google.com/file/d/1uRGGdDp3qgBDyZPYerN6ddEWYXHkat3h/view?usp=sharing')
   const [active, setActive] = useState(null);
 
   const { logout } = useContext(AuthContext) as IAuthContext;
