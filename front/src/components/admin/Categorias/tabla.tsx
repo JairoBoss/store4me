@@ -36,6 +36,7 @@ import CrearCategoria from "./crear";
 import CrearProducto from "../Productos/crearProducto";
 
 const TablaCategorias = () => {
+  require("./estilos.css")
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);

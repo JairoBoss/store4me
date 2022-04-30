@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import PagosService from "../../../services/Pagos.service";
 
 const TablaPagos = () => {
+  
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);

@@ -64,7 +64,7 @@ const ListaProductos = () => {
       {/* All Products */}
       <div className="small-container">
         <div className="row row-2">
-          <h2>All Products</h2>
+          <h2>Todos los productos</h2>
           <select>
             <option>Default Sort</option>
             <option>Sort By Price</option>

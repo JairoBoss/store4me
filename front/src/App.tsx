@@ -6,6 +6,7 @@ import Login from "./components/public/login";
 import { FullPageLoading } from "./components/FullPageLoading";
 import Admin from "./components/admin";
 import ListaProductos from "./components/public/Productos/listaProductos";
+import Header from "./components/public/Home/Header";
 
 function App() {
   const { currentUser, checkUser } = useContext(AuthContext) as IAuthContext;
@@ -17,6 +18,7 @@ function App() {
   const publicRoutes = (
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Header />} />
       <Route path="/gracias-por-comprar" element={<>
         <h1>Gracias por su compra</h1>
       </>} />
@@ -36,7 +38,7 @@ function App() {
       />
     </Routes>
   );
-
+ 
   const adminRoutes = (
     <Routes>
       <Route path="/ayuda" element={<Admin />} />

@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { Categoria } from "../../../models/Categoria";
 import CategoriaService from "../../../services/Categoria.service";
 import Swal from "sweetalert2";
-import "./estilos.css";
 import ReactDOM from "react-dom";
 import TablaCategorias from "./tabla";
 const EditarCategoria = ({ id }) => {
+  require("./estilos.css")
   const [datos, setDatos] = useState<Categoria>();
   const [loading, setLoading] = useState(false);
 
