@@ -2,9 +2,9 @@ import { CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Categoria } from "../../../models/Categoria";
 import CategoriaService from "../../../services/Categoria.service";
-// import Swal from "sweetalert2/dist/sweetalert2.js"
 import Swal from "sweetalert2/dist/sweetalert2.js"
 import ReactDOM from "react-dom";
+import Button from '@mui/material/Button';
 import TablaCategorias from "./tabla";
 const CrearCategoria = () => {
   require("./estilos.css")
@@ -57,8 +57,7 @@ const CrearCategoria = () => {
           <div className="card mb-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="font-weight-bolder">Crear categoria</h5>
-                {JSON.stringify(datos)}
+                <h5 className="font-weight-bolder">Crear categoria</h5>                
                 {!datos ? (
                   <CircularProgress />
                 ) : (
@@ -102,21 +101,15 @@ const CrearCategoria = () => {
                     </div>
                     <br />
                     <div className="row">
-                      <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonCancel"
-                          onClick={() => regresar()}
-                        >
+                      <div className="col-12 col-sm-3">                        
+                        <Button variant="outlined" color="error" onClick={() => regresar()}>
                           Cancelar
-                        </button>
+                        </Button>
                       </div>
-                      <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonSave"
-                          onClick={() => guardarCategoria()}
-                        >
+                      <div className="col-12 col-sm-3">                        
+                        <Button variant="outlined" color="success" onClick={() => guardarCategoria()}>
                           Guardar
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </>

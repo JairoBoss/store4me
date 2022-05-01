@@ -1,31 +1,19 @@
 import {
-  AppBar,
-  Button,
-  Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl,
-  Grid,
-  IconButton,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  Slide,
+  Paper,  
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TablePagination,
-  TableRow,
-  TextField,
-  Typography,
-  useTheme,
+  TableRow,    
   CircularProgress,
 } from "@mui/material";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
 import { ChangeEvent, useEffect, useState, MouseEvent } from "react";
 import CategoriaService from "../../../services/Categoria.service";
 import EditarCategoria from "./editar";
@@ -33,7 +21,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
 import Swal from "sweetalert2/dist/sweetalert2.js"
 import CrearCategoria from "./crear";
-import CrearProducto from "../Productos/crearProducto";
+
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
 
 const TablaCategorias = () => {
   require("./estilos.css")
@@ -109,8 +104,8 @@ const TablaCategorias = () => {
     if (divDash.children.length > 0) {
       ReactDOM.unmountComponentAtNode(divDash);
     }
-    // ReactDOM.render(<CrearCategoria />, divDash);
-    ReactDOM.render(<CrearProducto />, divDash);
+    ReactDOM.render(<CrearCategoria />, divDash);
+    // ReactDOM.render(<CrearProducto />, divDash);
     
   }
 
@@ -126,10 +121,8 @@ const TablaCategorias = () => {
       <div className="col-12">
         <div className="card mb-4">
           <div className="card-header pb-0">
-            <h6>Categorias</h6>
-            <button onClick={() => crearCategoria()}>
-              Crear categorias
-            </button>
+            <h6>Categorias</h6>            
+            <Button color="secondary" variant="outlined"  onClick={() => crearCategoria()}>Crear categorias</Button>
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
@@ -160,34 +153,32 @@ const TablaCategorias = () => {
                           {categoria.Descripcion}
                         </TableCell>
                         <TableCell component="th" scope="row">
-                          <button
-                            onClick={() => editarCategoria(categoria._id)}
-                          >
-                            Editar
-                          </button>
+                          <IconButton aria-label="delete"  onClick={() => editarCategoria(categoria._id)}>
+                            <EditIcon />
+                          </IconButton>
                         </TableCell>
-                        <TableCell component="th" scope="row">
-                          <button onClick={() => eliminarCategoria(categoria._id)}>
-                            Eliminar
-                          </button>
+                        <TableCell component="th" scope="row">                          
+                          <IconButton aria-label="delete"  onClick={() => eliminarCategoria(categoria._id)}>
+                            <DeleteIcon />
+                          </IconButton>
                         </TableCell>                        
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
               </TableContainer>
-              <TablePagination
+              {/* <TablePagination
                 component="div"
                 count={total}
                 page={page}
                 onPageChange={handleChangePage}
                 rowsPerPage={limit}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-              />
+              /> */}
             </div>
           </div>
         </div>
-      </div>
+      </div>            
     </div>
   );
 };

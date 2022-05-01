@@ -10,6 +10,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { ChangeEvent, useEffect, useState, MouseEvent } from "react";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
 import CategoriaService from "../../../services/Categoria.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
@@ -107,8 +111,8 @@ const TablaProductos = () => {
       <div className="col-12">
         <div className="card mb-4">
           <div className="card-header pb-0">
-            <h6>Productos</h6>
-            <button onClick={() => crearProducto()}>Crear producto</button>
+            <h6>Productos</h6>            
+            <Button color="secondary" variant="outlined" onClick={() => crearProducto()}>Crear producto</Button>
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
@@ -145,33 +149,29 @@ const TablaProductos = () => {
                         <TableCell component="th" scope="row">
                           {producto.Stock}
                         </TableCell>
-                        <TableCell component="th" scope="row">
-                          <button
-                            onClick={() => editarProducto(producto._id)}
-                          >
-                            Editar
-                          </button>
+                        <TableCell component="th" scope="row">                          
+                          <IconButton aria-label="delete"  onClick={() => editarProducto(producto._id)}>
+                            <EditIcon />
+                          </IconButton>
                         </TableCell>
-                        <TableCell component="th" scope="row">
-                          <button
-                            onClick={() => eliminarCategoria(producto._id)}
-                          >
-                            Eliminar
-                          </button>
+                        <TableCell component="th" scope="row">                          
+                          <IconButton aria-label="delete"  onClick={() => eliminarCategoria(producto._id)}>
+                            <DeleteIcon />
+                          </IconButton>
                         </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
               </TableContainer>
-              <TablePagination
+              {/* <TablePagination
                 component="div"
                 count={total}
                 page={page}
                 onPageChange={handleChangePage}
                 rowsPerPage={limit}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-              />
+              /> */}
             </div>
           </div>
         </div>

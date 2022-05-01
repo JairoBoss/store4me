@@ -9,9 +9,10 @@ import ReactDOM from "react-dom";
 import EditarCategoria from "./Categorias/editar";
 import TablaProductos from "./Productos/tablaProductos";
 import TablaPagos from "./Pagos/tablaPagos";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const Index = () => {
-  require('https://drive.google.com/file/d/1uRGGdDp3qgBDyZPYerN6ddEWYXHkat3h/view?usp=sharing')
+  require('./index.css')
   const [active, setActive] = useState(null);
 
   const { logout } = useContext(AuthContext) as IAuthContext;
@@ -101,17 +102,17 @@ const Index = () => {
                   target="_blank"
                 >
                   <img
-                    src="../assets/img/logo-ct.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
                     className="navbar-brand-img h-100"
                     alt=""
                   />
-                  <span className="ms-1 font-weight-bold">Store4me</span>
+                  <span className="ms-1 font-weight-bold"> Store4me</span>
                 </a>
               </div>
               <hr className="horizontal dark mt-0" />
               <div>
                 <ul className="navbar-nav">
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a className="nav-link  active" onClick={() => quitar()}>
                       <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
@@ -152,7 +153,7 @@ const Index = () => {
                       </div>
                       <span className="nav-link-text ms-1">Dashboard</span>
                     </a>
-                  </li>
+                  </li> */}
                   <li className="nav-item">
                     <a
                       // className="nav-link  "
@@ -302,49 +303,11 @@ const Index = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link  " href="../pages/rtl.html">
-                      <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg
-                          width="12px"
-                          height="12px"
-                          viewBox="0 0 40 40"
-                          version="1.1"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlnsXlink="http://www.w3.org/1999/xlink"
-                        >
-                          <title>settings</title>
-                          <g
-                            stroke="none"
-                            strokeWidth={1}
-                            fill="none"
-                            fillRule="evenodd"
-                          >
-                            <g
-                              transform="translate(-2020.000000, -442.000000)"
-                              fill="#FFFFFF"
-                              fillRule="nonzero"
-                            >
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(304.000000, 151.000000)">
-                                  <polygon
-                                    className="color-background opacity-6"
-                                    points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"
-                                  />
-                                  <path
-                                    className="color-background opacity-6"
-                                    d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
-                                  />
-                                  <path
-                                    className="color-background"
-                                    d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"
-                                  />
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
+                    <a className="nav-link  " onClick={() => salir()}>
+                      <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">                      
+                      <ExitToAppIcon/>
                       </div>
-                      <span className="nav-link-text ms-1">a</span>
+                      <span className="nav-link-text ms-1">Salir</span>
                     </a>
                   </li>
                   {/* <li className="nav-item mt-3">
@@ -489,7 +452,7 @@ const Index = () => {
                       </div>
                       <span className="nav-link-text ms-1">Sign Up</span>
                     </a>
-                  </li>
+                  </li> */}
 
                   <li className="nav-item">
                     <a className="nav-link  " onClick={() => setNav()}>
@@ -498,7 +461,7 @@ const Index = () => {
                         <BiArrowToLeft />
                       </span>
                     </a>
-                  </li> */}
+                  </li>
                 </ul>
               </div>
             </aside>{" "}
@@ -536,18 +499,9 @@ const Index = () => {
                 id="navbar"
               >
                 <div className="ms-md-auto pe-md-3 d-flex align-items-center">
-                  <div className="input-group">
-                    <span className="input-group-text text-body">
-                      <i className="fas fa-search" aria-hidden="true" />
-                    </span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type here..."
-                    />
-                  </div>
+                  
                 </div>
-                <ul className="navbar-nav  justify-content-end">
+                {/* <ul className="navbar-nav  justify-content-end">
                   <li className="nav-item d-flex align-items-center">
                     <a
                       className="btn btn-outline-primary btn-sm mb-0 me-3"
@@ -708,7 +662,7 @@ const Index = () => {
                       </li>
                     </ul>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </nav>
@@ -722,53 +676,18 @@ const Index = () => {
                 <div className="row align-items-center justify-content-lg-between">
                   <div className="col-lg-6 mb-lg-0 mb-4">
                     <div className="copyright text-center text-sm text-muted text-lg-start">
-                      © , made with <i className="fa fa-heart" /> by
-                      <a
-                        href="https://www.creative-tim.com"
-                        className="font-weight-bold"
-                        target="_blank"
-                      >
-                        Creative Tim
-                      </a>
-                      for a better web.
+                    Copyright © 2022
                     </div>
                   </div>
                   <div className="col-lg-6">
                     <ul className="nav nav-footer justify-content-center justify-content-lg-end">
                       <li className="nav-item">
                         <a
-                          href="https://www.creative-tim.com"
-                          className="nav-link text-muted"
-                          target="_blank"
-                        >
-                          Creative Tim
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          href="https://www.creative-tim.com/presentation"
-                          className="nav-link text-muted"
-                          target="_blank"
-                        >
-                          About Us
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          href="https://www.creative-tim.com/blog"
-                          className="nav-link text-muted"
-                          target="_blank"
-                        >
-                          Blog
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          href="https://www.creative-tim.com/license"
+                          href="https://github.com/JairoBoss"
                           className="nav-link pe-0 text-muted"
                           target="_blank"
                         >
-                          License
+                          Yo
                         </a>
                       </li>
                     </ul>

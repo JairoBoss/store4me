@@ -8,6 +8,7 @@ import CategoriaService from "../../../services/Categoria.service";
 import http from "../Imagen/http-common";
 import TablaProductos from "./tablaProductos";
 import ProductoService from "../../../services/Producto.service";
+import Button from '@mui/material/Button';
 
 const CrearProducto = ({ id }) => {
   const [imagenes, setImagenes] = useState([]);
@@ -305,20 +306,14 @@ const CrearProducto = ({ id }) => {
                     <br />
                     <div className="row">
                       <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonCancel"
-                          onClick={() => regresar()}
-                        >
+                        <Button variant="outlined" color="error" onClick={() => regresar()}>
                           Cancelar
-                        </button>
+                        </Button>
                       </div>
-                      <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonSave"
-                          onClick={() => actualizarProducto()}
-                        >
+                      <div className="col-12 col-sm-3">                        
+                        <Button variant="outlined" color="success" onClick={() => actualizarProducto()}>
                           Guardar
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </div>

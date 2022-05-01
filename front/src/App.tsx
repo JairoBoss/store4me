@@ -1,3 +1,4 @@
+// https://www.npmjs.com/package/react-use-cart
 import { useContext, useEffect, useState } from "react";
 import "./App.css";
 import { AuthContext, IAuthContext } from "./context/AuthContext";
@@ -7,6 +8,11 @@ import { FullPageLoading } from "./components/FullPageLoading";
 import Admin from "./components/admin";
 import ListaProductos from "./components/public/Productos/listaProductos";
 import Header from "./components/public/Home/Header";
+import Home from "./components/public/Store";
+import AcercaDe from "./components/public/Store/Acerca de";
+import Contacto from "./components/public/Store/Contacto/index";
+import FAQ from "./components/public/Store/faq";
+import NotFound from "./components/public/Store/NotFound";
 
 function App() {
   const { currentUser, checkUser } = useContext(AuthContext) as IAuthContext;
@@ -17,11 +23,20 @@ function App() {
   }, []);
   const publicRoutes = (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Header />} />
-      <Route path="/gracias-por-comprar" element={<>
-        <h1>Gracias por su compra</h1>
-      </>} />
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/acerca-de" element={<AcercaDe />} />
+      <Route path="/contacto" element={<Contacto />} />
+      <Route path="/preguntas-frecuentes" element={<FAQ />} />
+      <Route path="*" element={<NotFound />} />
+      <Route
+        path="/gracias-por-comprar"
+        element={
+          <>
+            <h1>Gracias por su compra</h1>
+          </>
+        }
+      />
       <Route path="/tienda/productos" element={<ListaProductos />} />
     </Routes>
   );
@@ -38,10 +53,16 @@ function App() {
       />
     </Routes>
   );
- 
+
   const adminRoutes = (
     <Routes>
-      <Route path="/ayuda" element={<Admin />} />
+      <Route path="/admin-panel" element={<Admin />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/acerca-de" element={<AcercaDe />} />
+      <Route path="/contacto" element={<Contacto />} />
+      <Route path="/preguntas-frecuentes" element={<FAQ />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 

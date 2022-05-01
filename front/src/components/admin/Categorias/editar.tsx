@@ -5,6 +5,8 @@ import CategoriaService from "../../../services/Categoria.service";
 import Swal from "sweetalert2/dist/sweetalert2.js"
 import ReactDOM from "react-dom";
 import TablaCategorias from "./tabla";
+import Button from '@mui/material/Button';
+
 const EditarCategoria = ({ id }) => {
   require("./estilos.css")
   const [datos, setDatos] = useState<Categoria>();
@@ -69,8 +71,7 @@ const EditarCategoria = ({ id }) => {
           <div className="card mb-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="font-weight-bolder">Editar categoria</h5>
-                {JSON.stringify(datos)}
+                <h5 className="font-weight-bolder">Editar categoria</h5>                
                 {!datos ? (
                   <CircularProgress />
                 ) : (
@@ -115,20 +116,14 @@ const EditarCategoria = ({ id }) => {
                     <br />
                     <div className="row">
                       <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonCancel"
-                          onClick={() => regresar()}
-                        >
+                      <Button variant="outlined" color="error" onClick={() => regresar()}>
                           Cancelar
-                        </button>
+                        </Button>
                       </div>
                       <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonSave"
-                          onClick={() => ActualizarCategoria()}
-                        >
+                        <Button variant="outlined" color="success" onClick={() => ActualizarCategoria()}>
                           Guardar
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </>
