@@ -33,9 +33,9 @@ const upload = multer({ dest: "uploads/" });
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
-
+const PORT = process.env.PORT || 3000;
 var corsOptions = {
-  origin: "http://localhost:8080",
+  origin: `http://localhost:${PORT}`,
 };
 //agregue cors middlewares usando el método app.use ()
 //app.use(cors(corsOptions));
@@ -134,8 +134,6 @@ require("./src/routes/cliente.routes.js")(app);
 require("./src/routes/venta.routes.js")(app);
 require("./src/routes/paypal.routes.js")(app);
 require("./src/routes/pago.routes.js")(app);
-
-let PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server en el puerto ${PORT}`);

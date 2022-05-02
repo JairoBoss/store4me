@@ -6,5 +6,5 @@ module.exports = {
    * Para conectarse de manera local
    * url: `mongodb://localhost:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
    */    
-  url: `mongodb://localhost:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
+  url: `${process.env.CLUSTER_MONGO}`,
 };
