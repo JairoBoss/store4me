@@ -3,7 +3,7 @@ import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
 import { Component, useState, useEffect } from "react";
 import http from "./http-common";
-import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from 'sweetalert2'
 
 const SimpleDropZone = () => {
   const data = "fde744cb1dbfac574b27ce316cdc6753";

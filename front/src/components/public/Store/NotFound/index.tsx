@@ -29,7 +29,7 @@ const NotFound = () => {
             <br/>
             <br/>
             <a href="/" className="yes">
-              YES
+              SI
             </a>
             <a href="https://www.youtube.com/watch?v=G3AfIvJBcGo">NO</a>
           </div>

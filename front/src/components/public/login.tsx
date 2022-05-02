@@ -63,7 +63,7 @@ function Login() {
               <span>GO</span> <i className="fa fa-check" />
             </button>
           </div>
-          <a className="pass-forgot">Forgot your password?</a>
+          <a className="pass-forgot">Olvidaste tu contraseña?</a>
         </div>
       </div>
     </div>

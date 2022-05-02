@@ -34,7 +34,7 @@ const Lista = () => {
       <div className="product-tab space-mb--r100">
         <div className="container">
           <div
-            className="product-tab__navigation text-center justify-content-center space-mb--r60 nav nav-pills"
+            className="product-tab__navigation text-center justify-content-center space-mb--r60 "
             role="tablist"
           >
             <div className="nav-item">

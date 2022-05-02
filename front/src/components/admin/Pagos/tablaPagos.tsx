@@ -12,7 +12,7 @@ import {
 import { ChangeEvent, useEffect, useState, MouseEvent } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
-import Swal from "sweetalert2/dist/sweetalert2.js";
+import Swal from 'sweetalert2';
 import PagosService from "../../../services/Pagos.service";
 import RenglonPago from "./renglon";
 

@@ -38,7 +38,7 @@ const Header = () => {
                   <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="/shop/left-sidebar">Tienda</a>
+                  <a href="/">Tienda</a>
                 </li>
                 <li>
                   <a href="/acerca-de">Acerca de</a>
@@ -103,7 +103,7 @@ const Header = () => {
               </ul>
               <ul className="d-block d-lg-none">
                 <li>
-                  <a href="/other/cart">
+                  <a href="/carrito">
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
@@ -184,13 +184,13 @@ const Header = () => {
                         <a href="/">Home</a>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="/shop/left-sidebar">Tienda</a>
+                        <a href="/">Tienda</a>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="/">Acerca de</a>
+                        <a href="/acerca-de">Acerca de</a>
                       </li>
                       <li className="menu-item-has-children">
-                        <a href="/">Contacto</a>
+                        <a href="/contacto">Contacto</a>
                       </li>
                     </ul>
                   </nav>
@@ -210,7 +210,7 @@ const Header = () => {
                           >
                             <path d="M256 256c52.805 0 96-43.201 96-96s-43.195-96-96-96-96 43.201-96 96 43.195 96 96 96zm0 48c-63.598 0-192 32.402-192 96v48h384v-48c0-63.598-128.402-96-192-96z" />
                           </svg>
-                          <a href="/other/login-register">Login</a>
+                          <a href="/login">Login</a>
                         </li>
                         <li>
                           <svg

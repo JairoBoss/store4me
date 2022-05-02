@@ -1,4 +1,4 @@
-import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from 'sweetalert2'
 import ReactDOM from "react-dom";
 import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";

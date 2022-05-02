@@ -4,9 +4,9 @@ const Informacion = () => {
       <div className="wide container">
         <div className="section-title-container text-center space-mb--r80">
           
-          <h2 className="section-title space-mb--20">Basic minimalism</h2>
+          <h2 className="section-title space-mb--20">Desarrollo de software 1</h2>
           <h4 className="section-title--secondary">
-            LEZADA STORE - SIMPLY AND BASIC
+            Ingeniería en Software y Sistemas Computacionales 
           </h4>
         </div>
         <div className="row">

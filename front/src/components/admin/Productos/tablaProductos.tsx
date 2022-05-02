@@ -17,7 +17,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import CategoriaService from "../../../services/Categoria.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
-import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from 'sweetalert2'
 import ProductoService from "../../../services/Producto.service";
 import CrearProducto from "./crearProducto";
 import SimpleDropZone from "../Imagen/imagen"

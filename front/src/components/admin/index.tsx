@@ -102,8 +102,7 @@ const Index = () => {
                   id="iconSidenav"
                 />
                 <a
-                  className="navbar-brand m-0"
-                  href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
+                  className="navbar-brand m-0"                  
                   target="_blank"
                 >
                   <img

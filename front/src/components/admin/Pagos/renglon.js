@@ -27,7 +27,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import ProductoService from "../../../services/Producto.service";
 import TablaPagos from "./tablaPagos";
 import ReactDOM from "react-dom";
-import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from 'sweetalert2'
 
 const RenglonPago = ({ id }) => {
   const [loading, setLoading] = useState(false);
