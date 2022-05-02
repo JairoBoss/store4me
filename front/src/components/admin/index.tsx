@@ -702,26 +702,7 @@ const Index = () => {
             </footer>
           </div>
         </main>
-        <div className="fixed-plugin">
-          <a className="fixed-plugin-button text-dark position-fixed px-3 py-2">
-            <i className="fa fa-cog py-2"> </i>
-          </a>
-          <div className="card shadow-lg ">
-            <div className="card-header pb-0 pt-3 ">
-              <div className="float-start">
-                <h5 className="mt-3 mb-0">Soft UI Configurator</h5>
-                <p>See our dashboard options.</p>
-              </div>
-              <div className="float-end mt-4">
-                <button className="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                  <i className="fa fa-close" />
-                </button>
-              </div>
-              {/* End Toggle Button */}
-            </div>
-            <hr className="horizontal dark my-1" />
-          </div>
-        </div>
+        
         {/*   Core JS Files   */}
         {/* Github buttons */}
         {/* Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc */}

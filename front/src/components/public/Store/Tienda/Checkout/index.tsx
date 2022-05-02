@@ -1,23 +1,23 @@
 import { Helmet } from "react-helmet";
 import Footer from "../../Footer";
 import Header from "../../Header";
-import HeaderProducto from './headerProducto';
-import ProductoDetalle from './productoDetalle';
+import Formulario from "./formulario";
+import HeaderCheckout from "./header";
 import { CartProvider } from "react-use-cart";
 
-const DetalleProducto = () => {
+const CheckoutForm = () => {
   return (
     <>
       <Helmet>
-        <title>Lezeda | Producto</title>
+        <title>Lezeda | Pagar</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <CartProvider> 
+      <CartProvider>
         <Header />
         <div style={{ paddingTop: "67px" }}>
-          <HeaderProducto />
+          <HeaderCheckout />
           <div style={{ paddingTop: "25px" }}>
-            <ProductoDetalle />
+            <Formulario />
           </div>
         </div>
         <Footer />
@@ -25,4 +25,4 @@ const DetalleProducto = () => {
     </>
   );
 };
-export default DetalleProducto;
+export default CheckoutForm;

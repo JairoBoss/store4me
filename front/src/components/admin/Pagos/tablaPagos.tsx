@@ -12,11 +12,11 @@ import {
 import { ChangeEvent, useEffect, useState, MouseEvent } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom";
-import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from "sweetalert2/dist/sweetalert2.js";
 import PagosService from "../../../services/Pagos.service";
+import RenglonPago from "./renglon";
 
 const TablaPagos = () => {
-  
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
@@ -43,7 +43,7 @@ const TablaPagos = () => {
     setLoading(true);
     try {
       const results = await PagosService.getAllPaid();
-      console.log(results.data);
+      // console.log(results.data);
       setPagos(results);
     } catch (e) {
       console.log(e);
@@ -70,38 +70,27 @@ const TablaPagos = () => {
                       <TableCell>Cliente</TableCell>
                       <TableCell>Producto</TableCell>
                       <TableCell>Precio</TableCell>
+                      <TableCell></TableCell>
+                      <TableCell></TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {pagos.map((pago, index) => (
-                      <TableRow
-                        key={`${pago._id}${index}record`}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 },
-                        }}
-                      >
-                        <TableCell component="th" scope="row">
-                          {pago.Nombres}
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                          {pago.NombreProducto}
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                          ${pago.cantidad}
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                    {pagos && pagos.map((item, index) =>{
+                      return(
+                        <RenglonPago key={index} id={item._id}/>
+                      )
+                    })}
                   </TableBody>
                 </Table>
               </TableContainer>
-              <TablePagination
+              {/* <TablePagination
                 component="div"
                 count={total}
                 page={page}
                 onPageChange={handleChangePage}
                 rowsPerPage={limit}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-              />
+              /> */}
             </div>
           </div>
         </div>

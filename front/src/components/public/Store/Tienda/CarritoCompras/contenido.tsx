@@ -4,18 +4,7 @@ import ProductoRenglon from "./productoRenglon";
 import CarritoVacio from "./carritoVacio";
 
 const ContenidoCarrito = () => {
-  const {
-    isEmpty,
-    totalUniqueItems,
-    items,
-    updateItemQuantity,
-    removeItem,
-    emptyCart,
-  } = useCart();
-
-  useEffect(() => {
-    console.log(items);
-  }, []);
+  const { isEmpty, items, emptyCart } = useCart();
 
   if (isEmpty) return <CarritoVacio />;
   let total = 0;
@@ -40,7 +29,7 @@ const ContenidoCarrito = () => {
               <tbody>
                 {items &&
                   items.map((item, index) => {
-                    total = total + (item.price * item.quantity)
+                    total = total + item.price * item.quantity;
                     return (
                       <>
                         <ProductoRenglon
@@ -60,7 +49,7 @@ const ContenidoCarrito = () => {
                     {" "}
                     <a
                       className="lezada-button lezada-button--medium"
-                      href="/checkout"
+                      href="/pagar"
                     >
                       Ir a pagar
                     </a>
@@ -87,7 +76,7 @@ const ContenidoCarrito = () => {
                 </div>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
       </div>
     </div>

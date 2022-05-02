@@ -4,7 +4,6 @@ const { param } = require("express/lib/request");
 
 exports.crearOrden = async (req, res) => {
   const Nombres = req.body.Nombres;
-  const NombreProducto = req.body.NombreProducto;
   const cantidad = req.body.cantidad;
   const order = {
     intent: "CAPTURE",
@@ -14,11 +13,11 @@ exports.crearOrden = async (req, res) => {
           currency_code: "MXN",
           value: cantidad,
         },
-        description: NombreProducto,
+        description: "Compra en store4me",
       },
     ],
     application_context: {
-      brand_name: `Store4Me ${NombreProducto}`,
+      brand_name: `Store4Me`,
       landing_page: "LOGIN",
       user_action: "PAY_NOW",
       return_url: "http://localhost:8080/api/pagos/validando-orden",
@@ -55,10 +54,20 @@ exports.crearOrden = async (req, res) => {
   let data = await new Pago({
     Nombres: Nombres,
     cantidad: cantidad,
-    NombreProducto: NombreProducto,
+    Productos: req.body.Productos,
+    Apellidos: req.body.Apellidos,
+    Email: req.body.Email,
+    Telefono: req.body.Telefono,
+    Calle: req.body.Calle,
+    Colonia: req.body.Colonia,
+    Pais: req.body.Pais,
+    Ciudad: req.body.Ciudad,
+    Estado: req.body.Estado,
+    Indicacion: req.body.Indicacion,
     IdPaypal: response.data.id,
     Pagado: false,
   });
+  // console.log(data)
 
   data
     .save()
@@ -67,7 +76,7 @@ exports.crearOrden = async (req, res) => {
       res.status(500).send({
         message:
           err.message ||
-          `Ocurrio un error al tratar de crear el  Producto ${productoNuevo.Nombre}`,
+          `Ocurrio un error al tratar de crear la compra`,
       });
     });
 

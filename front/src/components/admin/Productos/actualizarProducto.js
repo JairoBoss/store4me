@@ -20,7 +20,7 @@ const CrearProducto = ({ id }) => {
     loadCategorias();
     loadProducto();
     imagenesIniciales = state.Imagenes;
-    console.log(imagenesIniciales)
+    // console.log(imagenesIniciales)
   }, []);
 
   const loadCategorias = async () => {

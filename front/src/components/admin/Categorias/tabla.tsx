@@ -59,7 +59,7 @@ const TablaCategorias = () => {
     setLoading(true);
     try {
       const results = await CategoriaService.getAll();
-      console.log(results.data);
+      // console.log(results.data);
       setCategorias(results);
     } catch (e) {
       console.log(e);

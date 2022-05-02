@@ -4,7 +4,38 @@ const PaypalSchema = mongoose.Schema({
   Nombres: {
     type: String,
   },
-  NombreProducto: {
+  Apellidos: {
+    type: String,
+  },
+  Email: {
+    type: String,
+  },
+  Telefono: {
+    type: String,
+  },
+  Calle: {
+    type: String,
+  },
+  Colonia: {
+    type: String,
+  },
+  Pais: {
+    type: String,
+  },
+  Ciudad: {
+    type: String,
+  },
+  Estado: {
+    type: String,
+  },
+  CodigoPostal: {
+    type: String,
+  },
+  Productos: [[{    
+    type: String,
+    type: String,    
+  }]],
+  Indicacion: {
     type: String,
   },
   cantidad: {
