@@ -37,6 +37,8 @@ const PORT = process.env.PORT || 3001;
 var corsOptions = {
   origin: `http://localhost:${PORT}`,
 };
+
+app.use(cors());
 //agregue cors middlewares usando el método app.use ()
 //app.use(cors(corsOptions));
 
