@@ -20,8 +20,8 @@ exports.crearOrden = async (req, res) => {
       brand_name: `Store4Me`,
       landing_page: "LOGIN",
       user_action: "PAY_NOW",
-      return_url: "http://localhost:8080/api/pagos/validando-orden",
-      cancel_url: "http://localhost:8080/api/pagos/cancelando-orden",
+      return_url: "https://store4me-nodejs-api.herokuapp.com/api/pagos/validando-orden",
+      cancel_url: "https://store4me-nodejs-api.herokuapp.com/api/pagos/cancelando-orden",
     },
   };
   const params = new URLSearchParams();

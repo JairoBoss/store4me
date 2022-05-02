@@ -8,34 +8,34 @@ require('../index.css')
         <Carousel.Item >
           <img
             className="d-block w-100"
-            src="https://lezada.jamstacktemplates.dev/assets/images/hero-slider/hero-slider-one/2.jpg"
+            src="https://i0.wp.com/www.hiddencorners.com.mx/wp-content/uploads/2018/09/Cover_Alebrijes_HC-e1536905038802.jpg?w=1440"
             alt="First slide"
           />
-          <Carousel.Caption>
+          {/* <Carousel.Caption>
             <h3>Primera</h3>
-          </Carousel.Caption>
+          </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://lezada.jamstacktemplates.dev/assets/images/hero-slider/hero-slider-one/1.jpg"
+            src="https://i0.wp.com/www.hiddencorners.com.mx/wp-content/uploads/2018/09/Oaxaca_Alebrijes_HC6-e1536905503539.jpg?w=1440"
             alt="Second slide"
           />
 
-          <Carousel.Caption>
+          {/* <Carousel.Caption>
             <h3>Segunda</h3>
-          </Carousel.Caption>
+          </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://lezada.jamstacktemplates.dev/assets/images/hero-slider/hero-slider-one/3.jpg"
+            src="https://i0.wp.com/www.hiddencorners.com.mx/wp-content/uploads/2018/09/Oaxaca_Alebrijes_HC3-e1536905085762.jpg?resize=960%2C640"
             alt="Third slide"
           />
 
-          <Carousel.Caption>
+          {/* <Carousel.Caption>
             <h3>Tercera</h3>
-          </Carousel.Caption>
+          </Carousel.Caption> */}
         </Carousel.Item>
       </Carousel>
     </div>

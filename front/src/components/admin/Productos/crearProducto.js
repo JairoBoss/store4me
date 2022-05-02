@@ -42,7 +42,7 @@ const CrearProducto = () => {
   const getUploadParams = ({ file, meta }) => {
     let body = new FormData();
     body.append("foto", file);
-    return { url: "http://localhost:8080/api/s3Url", method: "post", body };
+    return { url: "https://store4me-nodejs-api.herokuapp.com/api/s3Url", method: "post", body };
   };
 
   const handleChangeStatus = ({ meta, file }, status) => {};
