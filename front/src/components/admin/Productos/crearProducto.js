@@ -1,4 +1,4 @@
-import Swal from "sweetalert2/dist/sweetalert2.js"
+import Swal from "sweetalert2/dist/sweetalert2.js";
 import ReactDOM from "react-dom";
 import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
@@ -8,6 +8,7 @@ import CategoriaService from "../../../services/Categoria.service";
 import http from "../Imagen/http-common";
 import TablaProductos from "./tablaProductos";
 import ProductoService from "../../../services/Producto.service";
+import Button from "@mui/material/Button";
 
 const CrearProducto = () => {
   const [imagenes, setImagenes] = useState([]);
@@ -100,7 +101,7 @@ const CrearProducto = () => {
   };
 
   return (
-    <>
+    <>    
       <div className="row">
         <div className="col-12">
           <div className="card mb-4">
@@ -216,20 +217,22 @@ const CrearProducto = () => {
                     <br />
                     <div className="row">
                       <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonCancel"
+                        <Button
+                          variant="outlined"
+                          color="error"
                           onClick={() => regresar()}
                         >
                           Cancelar
-                        </button>
+                        </Button>
                       </div>
                       <div className="col-12 col-sm-3">
-                        <button
-                          className="buttonSave"
+                        <Button
+                          variant="outlined"
+                          color="success"
                           onClick={() => guardarProducto()}
                         >
                           Guardar
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </div>

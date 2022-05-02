@@ -10,6 +10,7 @@ import EditarCategoria from "./Categorias/editar";
 import TablaProductos from "./Productos/tablaProductos";
 import TablaPagos from "./Pagos/tablaPagos";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { Helmet } from 'react-helmet';
 
 const Index = () => {
   require('./index.css')
@@ -69,6 +70,10 @@ const Index = () => {
 
   return (
     <>
+    <Helmet>
+        <title>Lezeda | Admin panel</title>
+        <meta name="description" content="Helmet application" />
+    </Helmet>
       <div>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"

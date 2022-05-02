@@ -3,6 +3,7 @@ import Header from "../Header";
 import { Helmet } from "react-helmet";
 import HeaderContacto from "./header";
 import ContactoDetalle from "./contactoDetalles";
+import { CartProvider } from "react-use-cart";
 
 const Contacto = () => {
   return (
@@ -11,14 +12,16 @@ const Contacto = () => {
         <title>Lezeda | Contacto</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <Header />
-      <div style={{ paddingTop: "67px" }}>
-        <HeaderContacto />
-        <div style={{ paddingTop: "25px" }}>
-          <ContactoDetalle />
+      <CartProvider>
+        <Header />
+        <div style={{ paddingTop: "67px" }}>
+          <HeaderContacto />
+          <div style={{ paddingTop: "25px" }}>
+            <ContactoDetalle />
+          </div>
         </div>
-      </div>
-      <Footer />
+        <Footer />
+      </CartProvider>
     </>
   );
 };

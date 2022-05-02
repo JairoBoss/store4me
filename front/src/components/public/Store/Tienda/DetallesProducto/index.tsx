@@ -1,23 +1,22 @@
-import Footer from "../Footer";
-import Header from "../Header";
-import HeaderAcercaDe from "./header";
-import Informacion from "./informacion";
 import { Helmet } from "react-helmet";
+import Footer from "../../Footer";
+import Header from "../../Header";
+import HeaderProducto from './headerProducto';
+import ProductoDetalle from './productoDetalle';
 import { CartProvider } from "react-use-cart";
-
-const AcercaDe = () => {
+const DetalleProducto = () => {
   return (
     <>
       <Helmet>
-        <title>Lezeda | Acerca de</title>
+        <title>Lezeda | Producto</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <CartProvider>
+      <CartProvider> 
         <Header />
         <div style={{ paddingTop: "67px" }}>
-          <HeaderAcercaDe />
+          <HeaderProducto />
           <div style={{ paddingTop: "25px" }}>
-            <Informacion />
+            <ProductoDetalle />
           </div>
         </div>
         <Footer />
@@ -25,4 +24,4 @@ const AcercaDe = () => {
     </>
   );
 };
-export default AcercaDe;
+export default DetalleProducto;

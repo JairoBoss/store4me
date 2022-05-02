@@ -13,6 +13,8 @@ import AcercaDe from "./components/public/Store/Acerca de";
 import Contacto from "./components/public/Store/Contacto/index";
 import FAQ from "./components/public/Store/faq";
 import NotFound from "./components/public/Store/NotFound";
+import DetalleProducto from "./components/public/Store/Tienda/DetallesProducto";
+import CarritoCompras from './components/public/Store/Tienda/CarritoCompras';
 
 function App() {
   const { currentUser, checkUser } = useContext(AuthContext) as IAuthContext;
@@ -28,7 +30,10 @@ function App() {
       <Route path="/acerca-de" element={<AcercaDe />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/preguntas-frecuentes" element={<FAQ />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/producto/:id" element={<DetalleProducto />} />
+      <Route path="/carrito" element={<CarritoCompras />} />
+      <Route path="*" element={<NotFound />} /> 
+      {/* 15 minutos */}
       <Route
         path="/gracias-por-comprar"
         element={
